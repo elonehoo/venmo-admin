@@ -5,7 +5,7 @@ const container = ref()
 const router = useRouter()
 
 function setContainer(flag:boolean){
-  container.value = flag
+  container.value.value = flag
 }
 
 
