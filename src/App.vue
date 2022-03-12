@@ -4,13 +4,12 @@ import { onMounted } from 'vue';
 const router = useRouter()
 
 onMounted(()=>{
-  router.push("/login")  
+  // router.push("/login")  
 })
 </script>
 
 <template>
   <main>
     <router-view />
-    <Footer />
   </main>
 </template>
