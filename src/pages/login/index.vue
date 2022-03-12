@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-const container = ref()
+let container = ref()
 
 const router = useRouter()
 
 function setContainer(flag:boolean){
-  container.value.value = flag
+  container.value = flag
 }
 
 
