@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
-const router = useRouter()
+// const router = useRouter()
 
 onMounted(()=>{
   // router.push("/login")  

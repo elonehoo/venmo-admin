@@ -21,7 +21,9 @@ function signUp(){
 </script>
 
 <template>
-  <div class="container" :class="{'sign-up-mode':container}">
+  <div 
+  class="container"
+   :class="{'sign-up-mode':container}">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
@@ -90,27 +92,26 @@ function signUp(){
           <div class="content">
             <h3>New here ?</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Happening now !
+              Join us today.
             </p>
             <button @click="setContainer(true)" class="btn transparent" id="sign-up-btn">
               Sign up
             </button>
           </div>
-          <img src="../../assert/login/log.svg" class="image" alt="" />
+          <img @click="setContainer(true)" src="../../assert/login/log.svg" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
             <h3>One of us ?</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+              Already have an account?
             </p>
             <button @click="setContainer(false)" class="btn transparent" id="sign-in-btn">
               Sign in
             </button>
           </div>
-          <img src="../../assert/login/register.svg" class="image" alt="" />
+          <img @click="setContainer(false)" src="../../assert/login/register.svg" class="image" alt="" />
         </div>
       </div>
     </div>
@@ -131,7 +132,6 @@ input {
 }
 
 .container {
-  position: 'relative';
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
