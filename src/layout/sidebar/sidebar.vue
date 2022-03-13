@@ -38,7 +38,7 @@ const props = withDefaults(defineProps<{
   isMenuOpen:true,
   menuTitle:'Naive Admin',
   menuLogo:'',
-  menuIcon:'bxl-c-plus-plus',
+  menuIcon:'bxl-venmo',
   isPaddingLeft:true,
   menuOpenedPaddingLeftBody:'250px',
   menuClosedPaddingLeftBody:'78px',
@@ -145,8 +145,7 @@ onMounted(()=>{
       <div id="my-scroll" style="margin: 6px 14px 0 14px;">
         <ul class="nav-list" style="overflow: visible;">
           <li v-if="isSearch" @click="isOpened = true">
-            <!-- <i class="bx bx-search" /> -->
-            <span class="iconify" data-icon="carbon:search" data-inline="false"></span>
+            <i class="bx bx-search" />
             <input type="text" :placeholder="searchPlaceholder" v-model="search" @keyup.enter="searchInput()">
             <span class="tooltip">{{ searchTooltip }}</span>
           </li>
@@ -184,7 +183,7 @@ onMounted(()=>{
 <style scoped>
 /* Google Font Link */
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-  @import url('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css');
+  @import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
   * {
     margin: 0;
     padding: 0;
