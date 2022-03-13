@@ -145,7 +145,8 @@ onMounted(()=>{
       <div id="my-scroll" style="margin: 6px 14px 0 14px;">
         <ul class="nav-list" style="overflow: visible;">
           <li v-if="isSearch" @click="isOpened = true">
-            <i class="bx bx-search" />
+            <!-- <i class="bx bx-search" /> -->
+            <span class="iconify" data-icon="carbon:search" data-inline="false"></span>
             <input type="text" :placeholder="searchPlaceholder" v-model="search" @keyup.enter="searchInput()">
             <span class="tooltip">{{ searchTooltip }}</span>
           </li>

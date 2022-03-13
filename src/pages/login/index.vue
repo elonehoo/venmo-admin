@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue';
 
 let container = ref()
 
@@ -29,58 +30,58 @@ function signUp(){
           <form action="#" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
-              <i class=""></i>
+              <Icon class="input-icon" icon="ph:user-duotone" />
               <input type="text" placeholder="Username" />
             </div>
             <div class="input-field">
-              <i class=""></i>
+              <Icon class="input-icon" icon="ri:lock-password-fill" />
               <input type="password" placeholder="Password" />
             </div>
             <div @click="signIn()" class="btn">Login</div>
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
-                <div i-line-md:facebook text-3xl inline-block />
+                <Icon class="icon" icon="line-md:facebook" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:twitter-twotone text-3xl inline-block />
+                <Icon class="icon" icon="line-md:twitter-twotone" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:github-twotone text-3xl inline-block />
+                <Icon class="icon" icon="line-md:github-twotone" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:linkedin text-3xl inline-block />
+                <Icon class="icon" icon="line-md:linkedin" />
               </a>
             </div>
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
-              <i class=""></i>
+              <Icon class="input-icon" icon="ph:user-duotone" />
               <input type="text" placeholder="Username" />
             </div>
             <div class="input-field">
-              <i class=""></i>
+              <Icon class="input-icon" icon="ic:twotone-email" />
               <input type="email" placeholder="Email" />
             </div>
             <div class="input-field">
-              <i class=""></i>
+              <Icon class="input-icon" icon="ri:lock-password-fill" />
               <input type="password" placeholder="Password" />
             </div>
             <div @click="signUp()" class="btn">Sign up</div>
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
-                <div i-line-md:facebook text-3xl inline-block />
+                <Icon class="icon" icon="line-md:facebook" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:twitter-twotone text-3xl inline-block />
+                <Icon class="icon" icon="line-md:twitter-twotone" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:github-twotone text-3xl inline-block />
+                <Icon class="icon" icon="line-md:github-twotone" />
               </a>
               <a href="#" class="social-icon">
-                <div i-line-md:linkedin text-3xl inline-block />
+                <Icon class="icon" icon="line-md:linkedin" />
               </a>
             </div>
           </form>
@@ -179,6 +180,12 @@ form.sign-in-form {
   z-index: 2;
 }
 
+.input-icon{
+  width: 2rem;
+  height: 2rem;
+  margin: auto;
+}
+
 .title {
   font-size: 2.2rem;
   color: #444;
@@ -244,6 +251,12 @@ form.sign-in-form {
   text-decoration: none;
   font-size: 1.1rem;
   transition: 0.3s;
+}
+
+.icon{
+  font-size: 1.875rem;
+  display: inline-block;
+  line-height: 2.25rem;
 }
 
 .social-icon:hover {
