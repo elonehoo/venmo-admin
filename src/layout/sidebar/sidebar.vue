@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref,onMounted,defineEmits} from 'vue'
+import {ref,onUpdated,onMounted,defineEmits} from 'vue'
 
 import menuItem from '~/layout/sidebar/menuItem'
 
@@ -126,19 +126,29 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits([
   'search-input-emit',
+  'is-open',
 ])
 
 function searchInput(){
   emit('search-input-emit',search)
 }
 
-const isOpened = ref(false)
+function isOpen(){
+  emit('is-open',isOpened.value)
+}
+
+const isOpened = ref()
 
 const search = ref()
+
+onUpdated(()=>{
+  isOpened.value = props.isMenuOpen
+})
 
 onMounted(()=>{
   isOpened.value = props.isMenuOpen
 })
+
 </script>
 
 <template>
@@ -147,7 +157,7 @@ onMounted(()=>{
       <img v-if="menuLogo" :src="menuLogo" alt="menu-log" class="menu-logo icon">
       <i v-else class="bx icon" :class="menuIcon" />
       <div class="logo_name"> {{ menuTitle }} </div>
-      <i class="bx" :class="isOpened ? 'bx-left-indent' : 'bx-right-indent'" id="btn" @click="isOpened = !isOpened" />
+      <i class="bx" :class="isOpened ? 'bx-left-indent' : 'bx-right-indent'" id="btn" @click="isOpen()" />
     </div>
 
     <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">

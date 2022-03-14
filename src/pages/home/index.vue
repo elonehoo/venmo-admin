@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import sidebar from '~/layout/sidebar/sidebar.vue'
 
-const isMenuOpen = ref(false)
+const isMenuOpen = ref(true)
 
-function demo(){
-  isMenuOpen.value = !isMenuOpen.value
+function demo(isOpen:boolean){
+  console.log(isOpen)
+  isMenuOpen.value = !isOpen
 }
 </script>
 
 <template>
   <div class="container" >
-      <div class="container-sidebar">
-        <sidebar :is-menu-open="isMenuOpen"/>
+      <div class="container-sidebar" :class="{'open':isMenuOpen}">
+        <sidebar :is-menu-open="isMenuOpen" @is-open="demo"/>
       </div>
       <div class="nav-main">
         <div class="navbar">
-          <button @click="demo">click</button>
+          <button>click</button>
         </div>
       </div>
   </div>
@@ -29,7 +30,6 @@ function demo(){
 }
 .container{	/* div的CSS样式 */
 	position : absolute;
-  background-color:black;
 	width : 100%;
 	height : 100%;
   display: flex;
@@ -37,12 +37,16 @@ function demo(){
   flex-wrap: nowrap;
 }
 .container-sidebar{
-  width: 306px;
+  width: 85px;
   height: 100%;
-  background-color: yellow;
+  transition: all 0.5s ease;
+}
+.open{
+  width: 307px;
 }
 .nav-main{
   display: flex;
+  margin-left: 3px;
   flex-direction: column;
   flex-wrap: nowrap;
   background-color: red;
