@@ -21,9 +21,7 @@ function signUp(){
 </script>
 
 <template>
-  <div 
-  class="container"
-   :class="{'sign-up-mode':container}">
+  <div class="container" :class="{'sign-up-mode':container}">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
