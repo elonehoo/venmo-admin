@@ -18,10 +18,6 @@ const props = withDefaults(defineProps<{
   isSearch?:boolean,
   searchPlaceholder?:string,
   searchTooltip?:string,
-  profileImg?:string,
-  profileName?:string,
-  profileRole?:string,
-  isExitButton?:boolean,
   //! Styles
   bgColor?:string,
   secondaryColor?:string,
@@ -115,10 +111,6 @@ const props = withDefaults(defineProps<{
   isSearch:true,
   searchPlaceholder:'Search...',
   searchTooltip:'Search',
-  profileImg:'https://github.com/xiaoxunyao.png',
-  profileName:'Elone Hoo',
-  profileRole:'Frontend vue developer',
-  isExitButton:true,
   //! Styles
   bgColor:'#11101d',
   secondaryColor:'#1d1b31',
@@ -134,7 +126,6 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits([
   'search-input-emit',
-  'quit'
 ])
 
 function searchInput(){
@@ -180,21 +171,6 @@ onMounted(()=>{
       </div>
     </div>
 
-    <div class="profile" >
-      <div class="profile-details">
-        <img v-if="profileImg" :src="profileImg" alt="profileImg" >
-        <i v-else class="bx bxs-user-rectangle" />
-        <div class="name_job">
-            <div class="name">
-              {{ profileName }}
-            </div>
-            <div class="job">
-              {{ profileRole }}
-            </div>
-        </div>
-      </div>
-      <i v-if="isExitButton" class="bx bx-log-out" id="log_out" @click="emit('quit')"  />
-    </div>
   </div>
 </template>
 
