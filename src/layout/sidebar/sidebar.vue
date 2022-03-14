@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<{
 }>(),{
   //! Menu settings
   isMenuOpen:true,
-  menuTitle:'Naive Admin',
+  menuTitle:'Venmo Admin',
   menuLogo:'',
   menuIcon:'bxl-venmo',
   isPaddingLeft:true,
@@ -48,49 +48,67 @@ const props = withDefaults(defineProps<{
             link: '#',
             name: 'Dashboard',
             tooltip: 'Dashboard',
-            icon: 'bx-grid-alt',
+            icon: 'bx-tachometer',
           },
           {
             link: '#',
-            name: 'User',
-            tooltip: 'User',
-            icon: 'bx-user',
+            name: 'System',
+            tooltip: 'System',
+            icon: 'bx-slider',
           },
           {
             link: '#',
-            name: 'Messages',
-            tooltip: 'Messages',
-            icon: 'bx-chat',
+            name: 'Table',
+            tooltip: 'Table',
+            icon: 'bx-grid',
           },
           {
             link: '#',
-            name: 'Analytics',
-            tooltip: 'Analytics',
-            icon: 'bx-pie-chart-alt-2',
+            name: 'Error',
+            tooltip: 'Error',
+            icon: 'bx-error-circle',
           },
           {
             link: '#',
-            name: 'File Manager',
-            tooltip: 'Files',
-            icon: 'bx-folder',
+            name: 'Form',
+            tooltip: 'Form',
+            icon: 'bx-spreadsheet',
           },
           {
             link: '#',
-            name: 'Order',
-            tooltip: 'Order',
-            icon: 'bx-cart-alt',
-          },
-          {
-            link: '#',
-            name: 'Saved',
-            tooltip: 'Saved',
-            icon: 'bx-heart',
+            name: 'Result',
+            tooltip: 'Result',
+            icon: 'bx-check-circle',
           },
           {
             link: '#',
             name: 'Setting',
             tooltip: 'Setting',
             icon: 'bx-cog',
+          },
+          {
+            link: '#',
+            name: 'Components',
+            tooltip: 'Components',
+            icon: 'bx-wallet-alt',
+          },
+          {
+            link:'#',
+            name:'Frame',
+            tooltip:'Frame',
+            icon:'bx-desktop'
+          },
+          {
+            link:'#',
+            name:'Documentation',
+            tooltip:'Documentation',
+            icon:'bx-file'
+          },
+          {
+            link:'#',
+            name:'About',
+            tooltip:'About',
+            icon:'bx-food-menu'
           },
   ],
   //! Search
@@ -138,7 +156,7 @@ onMounted(()=>{
       <img v-if="menuLogo" :src="menuLogo" alt="menu-log" class="menu-logo icon">
       <i v-else class="bx icon" :class="menuIcon" />
       <div class="logo_name"> {{ menuTitle }} </div>
-      <i class="bx" :class="isOpened ? 'bx-menu-alt-right' : 'bx-menu'" id="btn" @click="isOpened = !isOpened" />
+      <i class="bx" :class="isOpened ? 'bx-left-indent' : 'bx-right-indent'" id="btn" @click="isOpened = !isOpened" />
     </div>
 
     <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">

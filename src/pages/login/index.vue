@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
 
 let container = ref()
 
@@ -30,58 +29,58 @@ function signUp(){
           <form action="#" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
-              <Icon class="input-icon" icon="ph:user-duotone" />
+              <i class='bx bxs-user' />
               <input type="text" placeholder="Username" />
             </div>
             <div class="input-field">
-              <Icon class="input-icon" icon="ri:lock-password-fill" />
+              <i class='bx bxs-lock-alt' />
               <input type="password" placeholder="Password" />
             </div>
             <div @click="signIn()" class="btn">Login</div>
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:facebook" />
+                <i class='bx bxl-meta icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:twitter-twotone" />
+                <i class='bx bxl-twitter icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:github-twotone" />
+                <i class='bx bxl-github icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:linkedin" />
+                <i class='bx bxl-linkedin icon' />
               </a>
             </div>
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
-              <Icon class="input-icon" icon="ph:user-duotone" />
+              <i class='bx bxs-user' />
               <input type="text" placeholder="Username" />
             </div>
             <div class="input-field">
-              <Icon class="input-icon" icon="ic:twotone-email" />
+              <i class='bx bxs-envelope' />
               <input type="email" placeholder="Email" />
             </div>
             <div class="input-field">
-              <Icon class="input-icon" icon="ri:lock-password-fill" />
+              <i class='bx bxs-lock-alt' />
               <input type="password" placeholder="Password" />
             </div>
             <div @click="signUp()" class="btn">Sign up</div>
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:facebook" />
+                <i class='bx bxl-meta icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:twitter-twotone" />
+                <i class='bx bxl-twitter icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:github-twotone" />
+                <i class='bx bxl-github icon' />
               </a>
               <a href="#" class="social-icon">
-                <Icon class="icon" icon="line-md:linkedin" />
+                <i class='bx bxl-linkedin icon' />
               </a>
             </div>
           </form>
@@ -120,6 +119,7 @@ function signUp(){
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
 
 * {
   margin: 0;
@@ -178,12 +178,6 @@ form.sign-up-form {
 
 form.sign-in-form {
   z-index: 2;
-}
-
-.input-icon{
-  width: 2rem;
-  height: 2rem;
-  margin: auto;
 }
 
 .title {
