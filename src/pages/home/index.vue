@@ -1,49 +1,58 @@
 <script setup lang="ts">
-import Sidebar from '~/layout/sidebar/sidebar.vue';
-import Navbar from '~/layout/navbar/navbar.vue';
+import sidebar from '~/layout/sidebar/sidebar.vue'
 
-/**
- * is menu open
- */
-const menuOpen = ref(true)
+const open = ref(false)
 
-/**
- * search input method
- * @param value entered value
- */
-function searchInput(value:any){
-  console.log('search input')
+function isopen(){
+  open.value = !open.value
+  console.log(open.value)
 }
 </script>
 
 <template>
   <div class="container">
-
-    <div style="background-color: yellow;width: 500px;height: 890px;">
-    </div>
-    
-    <div></div>
+      <div class="sidebar">
+      </div>
+      <div class="nav-main">
+        <div class="navbar">
+          <button @click="isopen()">click</button>
+        </div>
+      </div>
   </div>
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{		/* CSS Reset */
+	margin : 0;
+	padding : 0;
+  display: flex;
+}
+.container{	/* div的CSS样式 */
+	position : absolute;
+  background-color: black;
+	width : 100%;
+	height : 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-body,
-input {
-  font-family: "Poppins", sans-serif;
-}
 
-.container {
+.sidebar{
+  background-color: yellow;
+  width: 250px;
+  height: 100%;
+}
+.nav-main{
+  display: flex;
+  flex-direction: column;
+  background-color: red;
   width: 100%;
-  background-color: #000;
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100%;
+}
+.navbar{
+  background-color: blue;
+  width: 100%;
+  height: 100px;
 }
 </style>
