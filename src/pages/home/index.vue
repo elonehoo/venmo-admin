@@ -41,6 +41,7 @@ function search(searchValue:string){
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  background: #ddd;
 }
 .container-sidebar{
   width: 85px;
@@ -55,7 +56,7 @@ function search(searchValue:string){
   margin-left: 3px;
   flex-direction: column;
   flex-wrap: nowrap;
-  background-color: red;
+  /* background-color: red; */
   width: 100%;
   height: 100%;
 }
