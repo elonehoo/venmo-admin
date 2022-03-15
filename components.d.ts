@@ -4,8 +4,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Sidebar: typeof import('~/layout/sidebar/sidebar.vue')['default']
+    Avatar: typeof import('./src/components/avatar/avatar.vue')['default']
     NavBar: typeof import('~/layout/navbar/navbar.vue')['default']
+    Sidebar: typeof import('~/layout/sidebar/sidebar.vue')['default']
   }
 }
 

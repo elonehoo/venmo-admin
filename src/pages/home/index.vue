@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useFullscreen } from '@vueuse/core'
+
 import sidebar from '~/layout/sidebar/sidebar.vue'
 import navbar from '~/layout/navbar/navbar.vue';
+
+const full = ref(null)
+const { toggle, isFullscreen } = useFullscreen(full)
 
 const isMenuOpen = ref(true)
 
@@ -15,15 +21,15 @@ function search(searchValue:string){
 </script>
 
 <template>
-  <div class="container" >
+  <div ref="full" class="container" >
       <div class="container-sidebar" :class="{'open':isMenuOpen}">
         <sidebar :is-menu-open="isMenuOpen" @is-open="unfold" @search-input="search"/>
       </div>
       <div class="nav-main">
         <div class="navbar">
-          <navbar />
+          <navbar :isFullscreen="isFullscreen" @is-full-screen="toggle" />
         </div>
-        <div>1111</div>
+        <h2>{{isFullscreen}}</h2>
       </div>
   </div>
 </template>

@@ -1,8 +1,35 @@
 <script setup lang="ts">
+import {ref,onUpdated,onMounted,defineEmits} from 'vue'
+
+import avatar from '~/components/avatar/avatar.vue'
+
+const props = withDefaults(defineProps<{
+  isFullscreen?:boolean,
+}>(),{
+  isFullscreen:false
+})
+
+const isFull = ref()
+
+onMounted(()=>{
+  isFull.value = props.isFullscreen
+})
+
+onUpdated(()=>{
+  isFull.value = props.isFullscreen
+})
+
+const emit = defineEmits([
+  'is-full-screen'
+])
+
 const isRefresh = ref(false)
 
 function refresh(){
   isRefresh.value = !isRefresh.value
+}
+function isFullScreen(){
+  emit('is-full-screen')
 }
 </script>
 
@@ -11,7 +38,7 @@ function refresh(){
     
     <div class="layout-header-left">
       <div class="layout-refresh">
-        <i class='bx bx-refresh bx-sm' :class="{'bx-spin': isRefresh}" @click="refresh"/>
+        <i class='bx bx-loader-alt bx-sm' :class="{'bx-spin': isRefresh}" @click="refresh"/>
       </div>
       <div class="layout-breadcrumb">
         abc
@@ -19,7 +46,19 @@ function refresh(){
     </div>
 
     <div class="layout-header-right">
-
+      <div>
+        <a class="icon-i" href="https://github.com/xiaoxunyao/naive-admin">
+          <i class='bx bxl-github bx-sm' />
+        </a>
+      </div>
+      <div style="margin-left: 20px;">
+        <a @click="isFullScreen" class="icon-i" href="#">
+          <i class='bx bx-sm' :class="isFull ? 'bx-collapse-alt':'bx-expand-alt'" />
+        </a>
+      </div>
+      <div style="margin-left: 20px;">
+        <avatar username="ElhoneHoo" />
+      </div>
     </div>
 
   </div>
@@ -61,8 +100,25 @@ function refresh(){
   }
 
   .layout-header-right{
+    /* width: 265px; */
+    /* background: blue; */
     display: flex;
     align-items: center;
     margin-right: 20px;
+  }
+  .icon-i{
+    color: #000; 
+  }
+  .icon-i:link{
+    color: #000; 
+  }
+  .icon-i:visited{
+    color: #000; 
+  }
+  .icon-i:hover{
+    color: #000; 
+  }
+  .icon-i:active{
+    color: #000; 
   }
 </style>
