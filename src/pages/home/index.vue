@@ -1,34 +1,40 @@
 <script setup lang="ts">
 import sidebar from '~/layout/sidebar/sidebar.vue'
+import navbar from '~/layout/navbar/navbar.vue';
 
 const isMenuOpen = ref(true)
 
-function demo(isOpen:boolean){
-  console.log(isOpen)
+function unfold(isOpen:boolean){
   isMenuOpen.value = !isOpen
 }
+
+function search(searchValue:string){
+  console.log(searchValue)
+}
+
 </script>
 
 <template>
   <div class="container" >
       <div class="container-sidebar" :class="{'open':isMenuOpen}">
-        <sidebar :is-menu-open="isMenuOpen" @is-open="demo"/>
+        <sidebar :is-menu-open="isMenuOpen" @is-open="unfold" @search-input="search"/>
       </div>
       <div class="nav-main">
         <div class="navbar">
-          <button>click</button>
+          <navbar />
         </div>
+        <div>1111</div>
       </div>
   </div>
 </template>
 
 <style scoped>
-*{		/* CSS Reset */
+*{
 	margin : 0;
 	padding : 0;
   display: flex;
 }
-.container{	/* div的CSS样式 */
+.container{
 	position : absolute;
 	width : 100%;
 	height : 100%;

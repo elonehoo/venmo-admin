@@ -125,21 +125,19 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits([
-  'search-input-emit',
+  'search-input',
   'is-open',
 ])
 
+const search = ref()
 function searchInput(){
-  emit('search-input-emit',search)
-}
-
-function isOpen(){
-  emit('is-open',isOpened.value)
+  emit('search-input',search.value)
 }
 
 const isOpened = ref()
-
-const search = ref()
+function isOpen(){
+  emit('is-open',isOpened.value)
+}
 
 onUpdated(()=>{
   isOpened.value = props.isMenuOpen
