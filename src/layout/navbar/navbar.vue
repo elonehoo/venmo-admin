@@ -57,7 +57,7 @@ function isFullScreen(){
         </a>
       </div>
       <div style="margin-left: 20px;">
-        <avatar username="ElhoneHoo" />
+        <avatar username="Elone Hoo" :isImage="true"/>
       </div>
     </div>
 
@@ -91,7 +91,7 @@ function isFullScreen(){
     height: 100%;
   }
   .layout-breadcrumb{
-    margin-left: 5px;
+    margin-left: 20px;
     width: 150px;
     height: 100%;
 

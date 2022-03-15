@@ -152,9 +152,9 @@ onMounted(()=>{
 <template>
   <div class="sidebar" :class="{'open':isOpened}">
     <div class="logo-details" style="margin: 6px 14px 0 14px;">
-      <img v-if="menuLogo" :src="menuLogo" alt="menu-log" class="menu-logo icon">
+      <img v-if="menuLogo && isOpened" :src="menuLogo" alt="menu-log" class="menu-logo icon">
       <i v-else class="bx icon" :class="menuIcon" />
-      <div class="logo_name"> {{ menuTitle }} </div>
+      <div v-if="isOpened" class="logo_name"> {{ menuTitle }} </div>
       <i class="bx" :class="isOpened ? 'bx-left-indent' : 'bx-right-indent'" id="btn" @click="isOpen()" />
     </div>
 
