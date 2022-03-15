@@ -60,8 +60,8 @@ function search(searchValue:string){
   height: 100%;
 }
 .navbar{
-  background-color: blue;
+  /* background-color: #fff; */
   width: 100%;
-  height: 100px;
+  height: 64px;
 }
 </style>
