@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
 }>(),{
   isFullscreen:false,
   breadcrumbName:'Dashboard',
-  username:'a t',
+  username:'Elone Hoo',
   isImage:true,
   isRadius:true,
   src:'https://github.com/xiaoxunyao.png',
