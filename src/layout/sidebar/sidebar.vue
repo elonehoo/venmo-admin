@@ -234,6 +234,11 @@ onMounted(()=>{
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
   }
   .sidebar.open .logo-details .icon,
   .sidebar.open .logo-details .logo_name {

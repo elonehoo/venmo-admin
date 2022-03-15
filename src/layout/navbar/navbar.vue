@@ -5,8 +5,20 @@ import avatar from '~/components/avatar/avatar.vue'
 
 const props = withDefaults(defineProps<{
   isFullscreen?:boolean,
+  breadcrumbName:string,
+  username?:string,
+  isImage:boolean,
+  isRadius?:boolean,
+  src?:string,
+  size?:number
 }>(),{
-  isFullscreen:false
+  isFullscreen:false,
+  breadcrumbName:'Dashboard',
+  username:'Elone Hoo',
+  isImage:true,
+  isRadius:true,
+  src:'https://github.com/xiaoxunyao.png',
+  size:50
 })
 
 const isFull = ref()
@@ -41,7 +53,7 @@ function isFullScreen(){
         <i class='bx bx-loader-alt bx-sm' :class="{'bx-spin': isRefresh}" @click="refresh"/>
       </div>
       <div class="layout-breadcrumb">
-        abc
+        {{props.breadcrumbName}}
       </div>
     </div>
 
@@ -57,7 +69,7 @@ function isFullScreen(){
         </a>
       </div>
       <div style="margin-left: 20px;">
-        <avatar username="Elone Hoo" :isImage="true"/>
+        <avatar :username="props.username" :isImage="props.isImage" :isRadius="props.isRadius" />
       </div>
     </div>
 
