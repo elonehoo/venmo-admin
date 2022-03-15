@@ -5,12 +5,16 @@ const props = withDefaults(defineProps<{
   isRadius?:boolean,
   isImage:boolean
   src?:string,
-  size?:number
+  size?:number,
+  backgroundColor?:string,
+  lighten?:number,
+  fontColor?:string
 }>(),{
   isRadius:true,
   isImage:true,
   src:'https://github.com/xiaoxunyao.png',
-  size:50
+  size:50,
+  lighten:80
 })
 
 const backgroundColors = ref([
@@ -22,10 +26,57 @@ const backgroundColors = ref([
 ])
 
 function randomBackgroundColor (seed:number) {
-      return backgroundColors.value[seed % (backgroundColors.value.length)]
+  if(!props.isImage){
+    return props.backgroundColor || backgroundColors.value[seed % (backgroundColors.value.length)]
+  }else{
+    return ''
+  }
 }
 
-function getInitials(username?:string):string{
+function radnomFontColor(){
+  if (!props.isImage) {
+    return props.fontColor || lightenColor(randomBackgroundColor(props.username.length), props.lighten)
+  }
+}
+
+function lightenColor(hex:any,amt:any){
+  // From https://css-tricks.com/snippets/javascript/lighten-darken-color/
+  var usePound = false
+
+  if (hex[0] === '#') {
+    hex = hex.slice(1)
+    usePound = true
+  }
+
+  var num = parseInt(hex, 16)
+  var r = (num >> 16) + amt
+
+  if (r > 255) {
+    r = 255
+  }else if (r < 0) {
+    r = 0
+  }
+
+  var b = ((num >> 8) & 0x00FF) + amt
+
+  if (b > 255) {
+    b = 255
+  } else if (b < 0) {
+    b = 0
+  }
+
+  var g = (num & 0x0000FF) + amt
+
+  if (g > 255) {
+    g = 255
+  }else if (g < 0) {
+    g = 0
+  }
+
+  return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
+}
+
+function getInitials(username:string):string{
   if(props.isImage){
     return ''
   }else{
@@ -58,7 +109,6 @@ function getInitials(username?:string):string{
 <style scoped>
 .avatar-round{
   background: v-bind('randomBackgroundColor(props.username.length)');
-  /* color: #fff; */
   width: v-bind('props.size')px;
   height: v-bind('props.size')px;
   border-radius: v-bind('props.isRadius ? "50%":"0%"');
@@ -77,6 +127,7 @@ function getInitials(username?:string):string{
   text-align: center;
 }
 .text-avatar{
+  color: v-bind('radnomFontColor()');
   display: flex;
   justify-content: center;
   align-items: center;

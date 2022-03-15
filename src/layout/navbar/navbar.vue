@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
 }>(),{
   isFullscreen:false,
   breadcrumbName:'Dashboard',
-  username:'Elone Hoo',
+  username:'a t',
   isImage:true,
   isRadius:true,
   src:'https://github.com/xiaoxunyao.png',
@@ -102,6 +102,14 @@ function isFullScreen(){
     width: 42px;
     height: 100%;
   }
+  .bx-spin{
+    -webkit-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite
+  }
+  .bx-spin-hover:hover{
+    -webkit-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite
+  }
   .layout-breadcrumb{
     margin-left: 20px;
     width: 150px;
@@ -110,7 +118,6 @@ function isFullScreen(){
     display: flex;
     align-items: center;
   }
-
   .layout-header-right{
     /* width: 265px; */
     /* background: blue; */
