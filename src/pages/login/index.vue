@@ -1,19 +1,31 @@
 <script setup lang="ts">
 
-let container = ref()
+/**
+ * Determine the status of the current page
+ * Default value is "true"
+ */
+let container = ref(true)
 
 const router = useRouter()
 
+/**
+ * Determine if the current page is in registration or login mode
+ * @param flag 「true-> login mode」「false -> registration mode」
+ */
 function setContainer(flag:boolean){
   container.value = flag
 }
-
-
+/**
+ * The login method will jump the route to "home"
+ */
 function signIn(){
   console.log("sign in")
   router.push("home")
 }
 
+/**
+ * to register
+ */
 function signUp(){
   console.log("sign up")
 }
@@ -21,7 +33,7 @@ function signUp(){
 </script>
 
 <template>
-  <div class="container" :class="{'sign-up-mode':container}">
+  <div class="container" :class="{'sign-up-mode':!container}">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
@@ -93,11 +105,11 @@ function signUp(){
               Happening now !
               Join us today.
             </p>
-            <button @click="setContainer(true)" class="btn transparent" id="sign-up-btn">
+            <button @click="setContainer(false)" class="btn transparent" id="sign-up-btn">
               Sign up
             </button>
           </div>
-          <img @click="setContainer(true)" src="../../assert/login/log.svg" class="image" alt="" />
+          <img @click="setContainer(false)" src="../../assert/login/log.svg" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
@@ -105,11 +117,11 @@ function signUp(){
             <p>
               Already have an account?
             </p>
-            <button @click="setContainer(false)" class="btn transparent" id="sign-in-btn">
+            <button @click="setContainer(true)" class="btn transparent" id="sign-in-btn">
               Sign in
             </button>
           </div>
-          <img @click="setContainer(false)" src="../../assert/login/register.svg" class="image" alt="" />
+          <img @click="setContainer(true)" src="../../assert/login/register.svg" class="image" alt="" />
         </div>
       </div>
     </div>
