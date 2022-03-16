@@ -1,13 +1,21 @@
 <script setup lang="ts">
 
 const props = withDefaults(defineProps<{
+  //! user name
   username:string,
+  //! is radius
   isRadius?:boolean,
+  //! is image
   isImage:boolean
+  //! src
   src?:string,
+  //! size
   size?:number,
+  //! background color
   backgroundColor?:string,
+  //! lighten
   lighten?:number,
+  //! font color
   fontColor?:string
 }>(),{
   isRadius:true,
@@ -25,6 +33,10 @@ const backgroundColors = ref([
   '#9E9E9E', '#607D8B'
 ])
 
+/**
+ * Judging background color based on username
+ * @param seed user name length
+ */
 function randomBackgroundColor (seed:number) {
   if(!props.isImage){
     return props.backgroundColor || backgroundColors.value[seed % (backgroundColors.value.length)]
@@ -33,6 +45,9 @@ function randomBackgroundColor (seed:number) {
   }
 }
 
+/**
+ * Generate font color based on background color
+ */
 function radnomFontColor(){
   if (!props.isImage) {
     return props.fontColor || lightenColor(randomBackgroundColor(props.username.length), props.lighten)

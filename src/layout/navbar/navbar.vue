@@ -3,13 +3,23 @@ import {ref,onUpdated,onMounted,defineEmits} from 'vue'
 
 import avatar from '~/components/avatar/avatar.vue'
 
+/**
+ * Default parameter list
+ */
 const props = withDefaults(defineProps<{
+  //! is full screen
   isFullscreen?:boolean,
+  //! breadcrumb name
   breadcrumbName:string,
+  //! user name
   username?:string,
+  //! is image
   isImage:boolean,
+  //! is radius
   isRadius?:boolean,
+  //! image src
   src?:string,
+  //! size
   size?:number
 }>(),{
   isFullscreen:false,
@@ -40,6 +50,9 @@ const isRefresh = ref(false)
 function refresh(){
   isRefresh.value = !isRefresh.value
 }
+/**
+ * Click the button for full screen operation
+ */
 function isFullScreen(){
   emit('is-full-screen')
 }
