@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<{
             icon: 'bx-grid',
           },
           {
-            link: 'error',
+            link: '/home/error',
             name: 'Error',
             tooltip: 'Error',
             icon: 'bx-error-circle',
@@ -206,12 +206,10 @@ onMounted(()=>{
           </li>
           <span v-for="(menuItem, index) in menuItems" :key="index">
             <li>
-              <!-- <a :href="menuItem.link"> -->
               <router-link :to="menuItem.link">
                 <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
                 <span class="links_name">{{ menuItem.name }}</span>
               </router-link>
-              <!-- </a> -->
               <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
             </li>
           </span>

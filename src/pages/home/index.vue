@@ -26,6 +26,7 @@ function search(searchValue:string){
   console.log(searchValue)
 }
 
+
 </script>
 
 <template>
