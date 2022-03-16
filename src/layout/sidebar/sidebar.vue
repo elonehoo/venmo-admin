@@ -3,31 +3,51 @@ import {ref,onUpdated,onMounted,defineEmits} from 'vue'
 
 import menuItem from '~/layout/sidebar/menuItem'
 
+/**
+ * Default parameter list
+ */
 const props = withDefaults(defineProps<{
-  //! Menu settings
+  /* ! Menu settings */
+  //! whether to expand
   isMenuOpen?:boolean,
+  //! menu title
   menuTitle?:string,
+  //! menu logo
   menuLogo?:string,
+  //! menu icon
   menuIcon?:string,
-  isPaddingLeft?:boolean,
-  menuOpenedPaddingLeftBody?:string,
-  menuClosedPaddingLeftBody?:string,
-  //! Menu items
+  
+  /* ! Menu items */
+  //! menu items
   menuItems?:Array<menuItem>,
-  //! Search
+  /* ! Search */
+  //! is search
   isSearch?:boolean,
+  //! search place holder
   searchPlaceholder?:string,
+  //! search tooltip
   searchTooltip?:string,
-  //! Styles
+  /* ! Styles */
+
+  //! background-color
   bgColor?:string,
+  //! secondary color
   secondaryColor?:string,
+  //! home section color
   homeSectionColor?:string,
+  //! logo title color
   logoTitleColor?:string,
+  //! icon color
   iconsColor?:string,
+  //! items tooltip color
   itemsTooltipColor?:string,
+  //! search input text color
   searchInputTextColor?:string,
+  //! menu items hover color
   menuItemsHoverColor?:string,
+  //! menu items text color
   menuItemsTextColor?:string,
+  //! menu footer text color
   menuFooterTextColor?:string
 }>(),{
   //! Menu settings
@@ -35,8 +55,6 @@ const props = withDefaults(defineProps<{
   menuTitle:'Venmo Admin',
   menuLogo:'',
   menuIcon:'bxl-venmo',
-  isPaddingLeft:true,
-  menuOpenedPaddingLeftBody:'250px',
   menuClosedPaddingLeftBody:'78px',
   //! Menu items
   menuItems:() =>[
@@ -124,25 +142,45 @@ const props = withDefaults(defineProps<{
   menuFooterTextColor:'#fff'
 })
 
+/**
+ * The emit method can be replaced by an external method.
+ * Here throws "the method of search: search-input" and "whether to expand: is-open"
+ */
 const emit = defineEmits([
   'search-input',
   'is-open',
 ])
 
+/**
+ * Search value
+ */
 const search = ref()
+
+/**
+ * Search method for departure after carriage return
+ */
 function searchInput(){
   emit('search-input',search.value)
 }
 
+/**
+ * whether to expand the sidebar
+ */
 const isOpened = ref()
 function isOpen(){
   emit('is-open',isOpened.value)
 }
 
+/**
+ * changes when isMenuOpen changes
+ */
 onUpdated(()=>{
   isOpened.value = props.isMenuOpen
 })
 
+/**
+ * will be called when the component is created
+ */
 onMounted(()=>{
   isOpened.value = props.isMenuOpen
 })
@@ -183,8 +221,9 @@ onMounted(()=>{
 </template>
 
 <style scoped>
-/* Google Font Link */
+  /* Google Font Link */
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+  /* Box Icons Link */
   @import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
   * {
     margin: 0;
