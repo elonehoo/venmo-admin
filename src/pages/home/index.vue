@@ -10,10 +10,18 @@ const { toggle, isFullscreen } = useFullscreen(full)
 
 const isMenuOpen = ref(true)
 
+/**
+ * Whether the sidebar is expanded
+ * @param isOpen is open
+ */
 function unfold(isOpen:boolean){
   isMenuOpen.value = !isOpen
 }
 
+/**
+ * search method
+ * @param searchValue search value
+ */
 function search(searchValue:string){
   console.log(searchValue)
 }

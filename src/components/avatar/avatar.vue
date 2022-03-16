@@ -25,6 +25,9 @@ const props = withDefaults(defineProps<{
   lighten:80
 })
 
+/**
+ * background colors
+ */
 const backgroundColors = ref([
   '#F44336', '#FF4081', '#9C27B0', '#673AB7',
   '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', 
@@ -54,6 +57,11 @@ function radnomFontColor(){
   }
 }
 
+/**
+ * The CSS preprocessors Sass and Less can take any color and darken() or lighten() it by a specific value. But no such ability is built into JavaScript. This function takes colors in hex format (i.e. #F06D06, with or without hash) and lightens or darkens them with a value.
+ * @param hex 
+ * @param amt 
+ */
 function lightenColor(hex:any,amt:any){
   // From https://css-tricks.com/snippets/javascript/lighten-darken-color/
   var usePound = false
@@ -91,6 +99,10 @@ function lightenColor(hex:any,amt:any){
   return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
 
+/**
+ * Get the initials of the first name
+ * @param username user name
+ */
 function getInitials(username:string):string{
   if(props.isImage){
     return ''
