@@ -65,13 +65,13 @@ const props = withDefaults(defineProps<{
             icon: 'bx-tachometer',
           },
           {
-            link: 'system',
+            link: '/home/system',
             name: 'System',
             tooltip: 'System',
             icon: 'bx-slider',
           },
           {
-            link: 'table',
+            link: '/home/table',
             name: 'Table',
             tooltip: 'Table',
             icon: 'bx-grid',
@@ -83,43 +83,43 @@ const props = withDefaults(defineProps<{
             icon: 'bx-error-circle',
           },
           {
-            link: 'form',
+            link: '/home/form',
             name: 'Form',
             tooltip: 'Form',
             icon: 'bx-spreadsheet',
           },
           {
-            link: 'result',
+            link: '/home/result',
             name: 'Result',
             tooltip: 'Result',
             icon: 'bx-check-circle',
           },
           {
-            link: 'setting',
+            link: '/home/setting',
             name: 'Setting',
             tooltip: 'Setting',
             icon: 'bx-cog',
           },
           {
-            link: 'components',
+            link: '/home/components',
             name: 'Components',
             tooltip: 'Components',
             icon: 'bx-wallet-alt',
           },
           {
-            link:'frame',
+            link:'/home/frame',
             name:'Frame',
             tooltip:'Frame',
             icon:'bx-desktop'
           },
           {
-            link:'documentation',
+            link:'/home/documentation',
             name:'Documentation',
             tooltip:'Documentation',
             icon:'bx-file'
           },
           {
-            link:'about',
+            link:'/home/about',
             name:'About',
             tooltip:'About',
             icon:'bx-food-menu'
