@@ -37,7 +37,9 @@ function search(searchValue:string){
         <div class="navbar">
           <navbar breadcrumbName="Dashboard" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true" />
         </div>
-        <h2>{{isFullscreen}}</h2>
+        <div>
+          <router-view />
+        </div>
       </div>
   </div>
 </template>

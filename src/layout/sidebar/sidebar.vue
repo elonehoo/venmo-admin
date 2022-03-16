@@ -59,67 +59,67 @@ const props = withDefaults(defineProps<{
   //! Menu items
   menuItems:() =>[
           {
-            link: '#',
+            link: '/home/dashboard',
             name: 'Dashboard',
             tooltip: 'Dashboard',
             icon: 'bx-tachometer',
           },
           {
-            link: '#',
+            link: 'system',
             name: 'System',
             tooltip: 'System',
             icon: 'bx-slider',
           },
           {
-            link: '#',
+            link: 'table',
             name: 'Table',
             tooltip: 'Table',
             icon: 'bx-grid',
           },
           {
-            link: '#',
+            link: 'error',
             name: 'Error',
             tooltip: 'Error',
             icon: 'bx-error-circle',
           },
           {
-            link: '#',
+            link: 'form',
             name: 'Form',
             tooltip: 'Form',
             icon: 'bx-spreadsheet',
           },
           {
-            link: '#',
+            link: 'result',
             name: 'Result',
             tooltip: 'Result',
             icon: 'bx-check-circle',
           },
           {
-            link: '#',
+            link: 'setting',
             name: 'Setting',
             tooltip: 'Setting',
             icon: 'bx-cog',
           },
           {
-            link: '#',
+            link: 'components',
             name: 'Components',
             tooltip: 'Components',
             icon: 'bx-wallet-alt',
           },
           {
-            link:'#',
+            link:'frame',
             name:'Frame',
             tooltip:'Frame',
             icon:'bx-desktop'
           },
           {
-            link:'#',
+            link:'documentation',
             name:'Documentation',
             tooltip:'Documentation',
             icon:'bx-file'
           },
           {
-            link:'#',
+            link:'about',
             name:'About',
             tooltip:'About',
             icon:'bx-food-menu'
@@ -206,10 +206,12 @@ onMounted(()=>{
           </li>
           <span v-for="(menuItem, index) in menuItems" :key="index">
             <li>
-              <a :href="menuItem.link">
+              <!-- <a :href="menuItem.link"> -->
+              <router-link :to="menuItem.link">
                 <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
                 <span class="links_name">{{ menuItem.name }}</span>
-              </a>
+              </router-link>
+              <!-- </a> -->
               <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
             </li>
           </span>
