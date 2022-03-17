@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Button from '~/components/button/button.vue';
+  
   import { useRouter } from 'vue-router';
   const router = useRouter();
   function goHome() {
@@ -14,7 +14,7 @@
     </div>
     <div class="view-text-center">
       <h1 class="view-text-base">Sorry, the page you visited does not exist.</h1>
-      <Button theme="iota" type="secondary" value="Go Home" @button-click="goHome()" />
+      <Bouton theme="iota" type="secondary" value="Go Home" @button-click="goHome()" />
     </div>
   </div>
 </template>
