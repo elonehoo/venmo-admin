@@ -1,9 +1,5 @@
 <script setup lang="ts">
-  import { useRouter } from 'vue-router';
-  const router = useRouter();
-  function goHome() {
-    router.push('/home');
-  }
+
 </script>
 
 <template>
@@ -13,7 +9,7 @@
     </div>
     <div class="view-text-center">
       <h1 class="view-text-base">success.</h1>
-      <Bouton theme="phi" type="secondary" value="Go Home" @button-click="goHome()" />
+      <Bouton theme="phi" type="secondary" value="Go Home" />
     </div>
   </div>
 </template>
