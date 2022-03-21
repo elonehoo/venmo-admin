@@ -1,14 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,onMounted,onUpdated } from 'vue'
 import { useFullscreen } from '@vueuse/core'
+import { useRouter,useRoute } from 'vue-router'
 
 import sidebar from '~/layout/sidebar/sidebar.vue'
-import navbar from '~/layout/navbar/navbar.vue';
+import navbar from '~/layout/navbar/navbar.vue'
+import router from '~/router'
 
 const full = ref(null)
+const routeName = ref()
 const { toggle, isFullscreen } = useFullscreen(full)
 
 const isMenuOpen = ref(true)
+
+const route = useRoute()
+
+function getRouterName(){
+  routeName.value = route.name
+}
+
+onMounted(()=>{
+  getRouterName()
+})
+
+onUpdated(()=>{
+  getRouterName()
+})
 
 /**
  * Whether the sidebar is expanded
@@ -26,7 +43,6 @@ function search(searchValue:string){
   console.log(searchValue)
 }
 
-
 </script>
 
 <template>
@@ -36,7 +52,7 @@ function search(searchValue:string){
       </div>
       <div class="nav-main">
         <div class="navbar">
-          <navbar breadcrumbName="Dashboard" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true" />
+          <navbar :breadcrumbName="routeName" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true" />
         </div>
         <div>
           <router-view />

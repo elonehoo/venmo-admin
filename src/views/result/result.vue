@@ -13,7 +13,7 @@
     </div>
     <div class="view-text-center">
       <h1 class="view-text-base">success.</h1>
-      <Bouton theme="iota" type="secondary" value="Go Home" @button-click="goHome()" />
+      <Bouton theme="phi" type="secondary" value="Go Home" @button-click="goHome()" />
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@
   justify-content: center;
 }
 .image {
-  width: 150px;
+  width: 100px;
   margin: 0 auto;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
