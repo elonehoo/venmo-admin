@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
 }>(),{
   isRadius:true,
   isImage:true,
-  src:'https://github.com/xiaoxunyao.png',
+  src:'https://github.com/elonehoo.png',
   size:50,
   lighten:80
 })
