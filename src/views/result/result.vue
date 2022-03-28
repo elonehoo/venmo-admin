@@ -9,7 +9,7 @@
 <template>
   <div class="view-container">
     <div class="view-text-center">
-    <img class="image" src="~/assert/result/success.svg" alt="" />
+    <img class="image" src="../../assert/result/success.svg" alt="" />
     </div>
     <div class="view-text-center">
       <h1 class="view-text-base">success.</h1>

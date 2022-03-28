@@ -31,5 +31,5 @@
 </template>
 
 <style scoped>
-  @import url('./bouton.css');
+  @import url('./bouton.scss');
 </style>
