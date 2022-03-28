@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref,onMounted,onUpdated } from 'vue'
 import { useFullscreen } from '@vueuse/core'
-import { useRouter,useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 import sidebar from '~/layout/sidebar/sidebar.vue'
 import navbar from '~/layout/navbar/navbar.vue'
-import router from '~/router'
 
 const full = ref(null)
 const routeName = ref()
