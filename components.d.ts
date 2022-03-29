@@ -7,7 +7,6 @@ declare module 'vue' {
     Avatar: typeof import('./src/components/avatar/avatar.vue')['default']
     Bouton: typeof import('./src/components/button/bouton.vue')['default']
     Return: typeof import('./src/components/return/return.vue')['default']
-    SidebarLink: typeof import('~/layout/sidebar-next/components/SidebarLink.vue')['default']
   }
 }
 
