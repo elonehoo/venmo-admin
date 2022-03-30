@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { title } from 'process';
 import {onMounted,onUpdated} from 'vue'
 import items from './menu'
 
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<{
           title: 'Console',
         },
         {
-          link:'/home/',
+          link:'',
           title:'workplace',
         }
       ]
@@ -129,7 +128,7 @@ const props = withDefaults(defineProps<{
       ]
     },
     {
-      title:'Components',
+      title:'compo',
       icon:'bx-wallet-alt',
       unfold:false,
       chiled:[
@@ -186,7 +185,13 @@ onUpdated(()=>{
 })
 
 function menuUnfold(index:number){
-  menus.value[index].unfold = !menus.value[index].unfold
+  for(var i = 0 ;  i < menus.value.length ; i++){
+    if(i === index){
+      menus.value[i].unfold = !menus.value[i].unfold
+    }else{
+      menus.value[i].unfold = false;
+    }
+  }
 }
 
 </script>
@@ -194,14 +199,14 @@ function menuUnfold(index:number){
 <template>
 <div class="sidebar" :class="isOpen ? 'close' : '' ">
     <div class="logo-details">
-      <img v-if="logo" :src="logo" alt="menu-log" class="menu-logo icon">
-      <i v-else class="bx icon" :class="icon" />
-      <div v-if="!isOpen" class="logo_name"> {{ title }} </div>
+      <img v-if="logo" :src="props.logo" alt="menu-log" class="menu-logo icon">
+      <i v-else class="bx icon" :class="props.icon" />
+      <div v-if="!isOpen" class="logo_name"> {{ props.title }} </div>
     </div>
     <ul class="nav-links" style="overflow: visible;">
       <li v-for="(menu,index) in menus" :key="index" :class="menu.unfold ? 'showMenu':''">
         <div class="icon-link" @click="menu.chiled?.length !== undefined ? menuUnfold(index) : '' ">
-          <router-link  :to="menu.chiled?.length !== undefined ? '' : menu.link ">
+          <router-link :to="menu.chiled?.length !== undefined ? '' : menu.link ">
             <i class="bx" :class="menu.icon || 'bx-square-rounded'"></i>
             <span class="link_name">{{menu.title}}</span>
           </router-link >

@@ -40,7 +40,7 @@ function unfold(isOpen:boolean){
 <template>
   <!-- <div ref="full" class="container" > -->
       <!-- <div class="container-sidebar" :class="{'open':isMenuOpen}"> -->
-      <div>
+      <div ref="full">
         <!-- <sidebar :is-menu-open="isMenuOpen" @is-open="unfold"/> -->
         <sidebar />
       </div>
