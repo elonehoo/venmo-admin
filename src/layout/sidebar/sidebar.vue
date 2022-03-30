@@ -20,14 +20,6 @@ const props = withDefaults(defineProps<{
   /* ! Menu items */
   //! menu items
   menuItems?:Array<menuItem>,
-  /* ! Search */
-  //! is search
-  isSearch?:boolean,
-  //! search place holder
-  searchPlaceholder?:string,
-  //! search tooltip
-  searchTooltip?:string,
-  /* ! Styles */
 
   //! background-color
   bgColor?:string,
@@ -125,10 +117,6 @@ const props = withDefaults(defineProps<{
             icon:'bx-food-menu'
           },
   ],
-  //! Search
-  isSearch:true,
-  searchPlaceholder:'Search...',
-  searchTooltip:'Search',
   //! Styles
   bgColor:'#11101d',
   secondaryColor:'#1d1b31',

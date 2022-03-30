@@ -1,132 +1,220 @@
 <script setup lang="ts">
+import { title } from 'process';
+import {onMounted,onUpdated} from 'vue'
+import items from './menu'
 
-function menu_open(){
-  isMenuOpen.value = !isMenuOpen.value
+const isOpen = ref()
+
+const menus = ref()
+
+const props = withDefaults(defineProps<{
+  isOpened?: boolean,
+  
+  title?: string,
+  logo?: string,
+  icon?: string,
+
+  menu?: Array<items>
+
+}>(),{
+  isOpened: false,
+  
+  title: 'Venmo Admin',
+  icon:'bxl-venmo',
+
+  menu:()=>[
+    {
+      title: 'Dashboard',
+      icon: 'bx-tachometer',
+      unfold:false,
+      chiled:[
+        {
+          link:'/home/dashboard',
+          title: 'Console',
+        },
+        {
+          link:'/home/',
+          title:'workplace',
+        }
+      ]
+    },
+    {
+      title: 'System',
+      icon: 'bx-slider',
+      unfold:false,
+      chiled:[
+        {
+          link:'',
+          title:'Role Admin',
+        },
+        {
+          link:'',
+          title:'User Admin',
+        },
+      ],
+    },
+    {
+      title: 'Table',
+      icon: 'bx-grid',
+      unfold:false,
+      chiled:[
+        {
+          link:'',
+          title:'Basic Table',
+        },
+      ],
+    },
+    {
+      title:'Error',
+      icon:'bx-error-circle',
+      unfold:false,
+      chiled:[
+        {
+          link:'',
+          title:'500',
+        },
+        {
+          link:'',
+          title:'404',
+        },
+        {
+          link:'',
+          title:'403',
+        }
+      ]
+    },
+    {
+      title:'From',
+      icon:'bx-spreadsheet',
+      unfold:false,
+      chiled:[
+        {
+          title:'Basic From',
+          link:''
+        }
+      ]
+    },
+    {
+      title:'Result',
+      icon: 'bx-check-circle',
+      unfold:false,
+      chiled:[
+        {
+          title:'Success',
+          link:''
+        },
+        {
+          title:'Fail',
+          link:''
+        },
+        {
+          title:'Info',
+          link:''
+        }
+      ]
+    },
+    {
+      title:'Setting',
+      icon:'bx-cog',
+      unfold:false,
+      chiled:[
+        {
+          title:'Account',
+          link:''
+        },
+        {
+          title:'System',
+          link:''
+        }
+      ]
+    },
+    {
+      title:'Components',
+      icon:'bx-wallet-alt',
+      unfold:false,
+      chiled:[
+        {
+          title:'Table',
+          link:''
+        },
+        {
+          title:'Form',
+          link:''
+        },
+        {
+          title:'Upload',
+          link:''
+        },
+        {
+          title:'modal',
+          link:''
+        },
+      ]
+    },
+    {
+      title:'Frame',
+      icon:'bx-desktop',
+      unfold:false,
+      chiled:[
+        {
+          title:'GitHub',
+          link:''
+        }
+      ]
+    },
+    {
+      link:'/home/documentation',
+      title:'Documentation',
+      icon:'bx-file'
+    },
+    {
+      link:'/home/about',
+      title:'About',
+      icon:'bx-food-menu'
+    }
+  ]
+})
+
+onMounted(()=>{
+  isOpen.value = props.isOpened
+  menus.value = props.menu
+})
+
+onUpdated(()=>{
+  isOpen.value = props.isOpened
+  menus.value = props.menu
+})
+
+function menuUnfold(index:number){
+  menus.value[index].unfold = !menus.value[index].unfold
 }
-
-const isMenuOpen = ref(false)
 
 </script>
 
 <template>
-<div class="sidebar">
+<div class="sidebar" :class="isOpen ? 'close' : '' ">
     <div class="logo-details">
-      <i class='bx bxl-venmo'></i>
-      <span class="logo_name">Venmo Admin</span>
+      <img v-if="logo" :src="logo" alt="menu-log" class="menu-logo icon">
+      <i v-else class="bx icon" :class="icon" />
+      <div v-if="!isOpen" class="logo_name"> {{ title }} </div>
     </div>
-    <ul class="nav-links">
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt' ></i>
-          <span class="link_name">Dashboard</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Category</a></li>
-        </ul>
-      </li>
-      <li :class="isMenuOpen ? 'showMenu':''">
-        <div class="iocn-link" @click="menu_open">
-          <a href="#">
-            <i class='bx bx-collection' ></i>
-            <span class="link_name">Category</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
+    <ul class="nav-links" style="overflow: visible;">
+      <li v-for="(menu,index) in menus" :key="index" :class="menu.unfold ? 'showMenu':''">
+        <div class="icon-link" @click="menu.chiled?.length !== undefined ? menuUnfold(index) : '' ">
+          <router-link  :to="menu.chiled?.length !== undefined ? '' : menu.link ">
+            <i class="bx" :class="menu.icon || 'bx-square-rounded'"></i>
+            <span class="link_name">{{menu.title}}</span>
+          </router-link >
+          <i v-if="menu.chiled?.length !== undefined" class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
+          <li><a class="link_name">{{menu.title}}</a></li>
+          <li v-if="menu.chiled?.length !== undefined" v-for="(subMenu,index) in menu.chiled" :key="index">
+            <router-link :to="subMenu.link">{{subMenu.title}}</router-link>
+          </li>
         </ul>
       </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Analytics</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug' ></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass' ></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        <img src="https://github.com/elonehoo.png" alt="profile">
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
+    </ul>
 </div>
 
 </template>
@@ -200,12 +288,12 @@ const isMenuOpen = ref(false)
 .sidebar .nav-links li:hover{
   background: #1d1b31;
 }
-.sidebar .nav-links li .iocn-link{
+.sidebar .nav-links li .icon-link{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.sidebar.close .nav-links li .iocn-link{
+.sidebar.close .nav-links li .icon-link{
   display: block
 }
 .sidebar .nav-links li i{
@@ -374,276 +462,15 @@ const isMenuOpen = ref(false)
   font-size: 26px;
   font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  */
+.menu-logo {
+    width: 30px;
+    margin: 0 10px 0 10px;
+}
+
+.icon{
+    opacity: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
 
 </style>
