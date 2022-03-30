@@ -147,21 +147,8 @@ const props = withDefaults(defineProps<{
  * Here throws "the method of search: search-input" and "whether to expand: is-open"
  */
 const emit = defineEmits([
-  'search-input',
   'is-open',
 ])
-
-/**
- * Search value
- */
-const search = ref()
-
-/**
- * Search method for departure after carriage return
- */
-function searchInput(){
-  emit('search-input',search.value)
-}
 
 /**
  * whether to expand the sidebar
@@ -199,11 +186,7 @@ onMounted(()=>{
     <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
       <div id="my-scroll" style="margin: 6px 14px 0 14px;">
         <ul class="nav-list" style="overflow: visible;">
-          <li v-if="isSearch" @click="isOpened = true">
-            <i class="bx bx-search" />
-            <input type="text" :placeholder="searchPlaceholder" v-model="search" @keyup.enter="searchInput()">
-            <span class="tooltip">{{ searchTooltip }}</span>
-          </li>
+         
           <span v-for="(menuItem, index) in menuItems" :key="index">
             <li>
               <router-link :to="menuItem.link">

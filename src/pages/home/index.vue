@@ -3,7 +3,8 @@ import { ref,onMounted,onUpdated } from 'vue'
 import { useFullscreen } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 
-import sidebar from '~/layout/sidebar/sidebar.vue'
+// import sidebar from '~/layout/sidebar/sidebar.vue'
+import sidebar from '~/layout/sidebar-next/sidebar.vue'
 import navbar from '~/layout/navbar/navbar.vue'
 
 const full = ref(null)
@@ -34,37 +35,31 @@ function unfold(isOpen:boolean){
   isMenuOpen.value = !isOpen
 }
 
-/**
- * search method
- * @param searchValue search value
- */
-function search(searchValue:string){
-  console.log(searchValue)
-}
-
 </script>
 
 <template>
-  <div ref="full" class="container" >
-      <div class="container-sidebar" :class="{'open':isMenuOpen}">
-        <sidebar :is-menu-open="isMenuOpen" @is-open="unfold" @search-input="search"/>
+  <!-- <div ref="full" class="container" > -->
+      <!-- <div class="container-sidebar" :class="{'open':isMenuOpen}"> -->
+      <div>
+        <!-- <sidebar :is-menu-open="isMenuOpen" @is-open="unfold"/> -->
+        <sidebar />
       </div>
-      <div class="nav-main">
+      <!-- <div class="nav-main">
         <div class="navbar">
           <navbar :breadcrumbName="routeName" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true" />
         </div>
         <div>
           <router-view />
         </div>
-      </div>
-  </div>
+      </div> -->
+  <!-- </div> -->
 </template>
 
 <style scoped>
 *{
 	margin : 0;
 	padding : 0;
-  display: flex;
+  /* display: flex; */
 }
 .container{
 	position : absolute;
