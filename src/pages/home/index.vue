@@ -3,15 +3,15 @@ import { ref,onMounted,onUpdated } from 'vue'
 import { useFullscreen } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 
-// import sidebar from '~/layout/sidebar/sidebar.vue'
-import sidebar from '~/layout/sidebar-next/sidebar.vue'
+import sidebar from '~/layout/sidebar/sidebar.vue'
+// import sidebar from '~/layout/sidebar-next/sidebar.vue'
 import navbar from '~/layout/navbar/navbar.vue'
 
 const full = ref(null)
 const routeName = ref()
 const { toggle, isFullscreen } = useFullscreen(full)
 
-const isMenuOpen = ref(true)
+const isMenuOpen = ref(false)
 
 const route = useRoute()
 
@@ -38,21 +38,15 @@ function unfold(isOpen:boolean){
 </script>
 
 <template>
-  <!-- <div ref="full" class="container" > -->
-      <!-- <div class="container-sidebar" :class="{'open':isMenuOpen}"> -->
-      <div ref="full">
-        <!-- <sidebar :is-menu-open="isMenuOpen" @is-open="unfold"/> -->
-        <sidebar />
+  <div ref="full" class="container">
+    <sidebar :is-opened="isMenuOpen"/>
+    <section class="home-section" :class="isMenuOpen? 'home-close' : '' ">
+      <navbar @is-sidebar-open="unfold(isMenuOpen)" :isSidebarOpen="isMenuOpen" :breadcrumbName="routeName" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true"/>
+      <div>
+        <router-view/>
       </div>
-      <!-- <div class="nav-main">
-        <div class="navbar">
-          <navbar :breadcrumbName="routeName" :isFullscreen="isFullscreen" @is-full-screen="toggle" :isImage="true" />
-        </div>
-        <div>
-          <router-view />
-        </div>
-      </div> -->
-  <!-- </div> -->
+    </section>
+  </div>
 </template>
 
 <style scoped>
@@ -70,14 +64,18 @@ function unfold(isOpen:boolean){
   flex-wrap: nowrap;
   background: #ddd;
 }
-.container-sidebar{
-  width: 85px;
-  height: 100%;
+.home-section{
+  position: relative;
+  height: 100vh;
+  left: 260px;
+  width: calc(100% - 260px);
   transition: all 0.5s ease;
 }
-.open{
-  width: 307px;
+.home-close{
+  left: 78px;
+  width: calc(100% - 78px);
 }
+
 .nav-main{
   display: flex;
   margin-left: 3px;

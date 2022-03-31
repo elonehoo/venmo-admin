@@ -7,6 +7,7 @@ import avatar from '~/components/avatar/avatar.vue'
  * Default parameter list
  */
 const props = withDefaults(defineProps<{
+  isSidebarOpen:boolean,
   //! is full screen
   isFullscreen?:boolean,
   //! breadcrumb name
@@ -42,7 +43,8 @@ onUpdated(()=>{
 })
 
 const emit = defineEmits([
-  'is-full-screen'
+  'is-full-screen',
+  'is-sidebar-open'
 ])
 
 const isRefresh = ref(false)
@@ -56,14 +58,25 @@ function refresh(){
 function isFullScreen(){
   emit('is-full-screen')
 }
+
+function isSidebarOpen(){
+  emit('is-sidebar-open')
+}
 </script>
 
 <template>
   <div class="layout-navbar">
     
     <div class="layout-header-left">
+      <div  class="layout-sidebar">
+        <a href="#" class="icon-i" @click="isSidebarOpen">
+          <i class="bx bx-sm" :class="props.isSidebarOpen ?  'bx-right-indent' : 'bx-left-indent' " />
+        </a>
+      </div>
       <div class="layout-refresh">
-        <i class='bx bx-loader-alt bx-sm' :class="{'bx-spin': isRefresh}" @click="refresh"/>
+        <a href="#" class="icon-i" @click="refresh">
+          <i class='bx bx-loader-alt bx-sm' :class="{'bx-spin': isRefresh}" />
+        </a>
       </div>
       <div class="layout-breadcrumb">
         {{props.breadcrumbName}}
@@ -106,6 +119,13 @@ function isFullScreen(){
   .layout-header-left{
     display: flex;
     align-items: center;
+  }
+  .layout-sidebar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 100%;
   }
   .layout-refresh{
     display: flex;
