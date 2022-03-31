@@ -6,54 +6,104 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     name:'home',    
-    path:'/home',
-    redirect:'/home/dashboard',
+    path:'/',
+    redirect:'/dashboard/console',
     component: ()=> import('~/pages/home/index.vue'),
     children:[
       {
-        name:'dashboard',
-        path:'dashboard',
-        component: ()=> import('~/views/dashboard/dashboard.vue')
+        name:'console',
+        path:'dashboard/console',
+        component: ()=> import('~/views/dashboard/console/console.vue')
       },
       {
-        name:'system',
-        path:'system',
-        component: ()=> import('~/views/system/system.vue')
+        name:'workplace',
+        path:'dashboard/workplace',
+        component: ()=> import('~/views/dashboard/workplace/workplace.vue')
       },
       {
-        name:'table',
-        path:'table',
-        component: ()=> import('~/views/table/table.vue')
+        name:'role-admin',
+        path:'system/role-admin',
+        component: ()=> import('~/views/system/role-admin/role-admin.vue')
       },
       {
-        name:'error',
-        path:'error',
-        component: ()=> import('~/views/error/error.vue')
+        name:'user-admin',
+        path:'system/user-admin',
+        component: ()=> import('~/views/system/user-admin/user-admin.vue')
       },
       {
-        name:'form',
-        path:'form',
-        component: ()=> import('~/views/form/form.vue')
+        name:'basic-table',
+        path:'table/basic-table',
+        component: ()=> import('~/views/table/basic-table/basic-table.vue')
       },
       {
-        name:'result',
-        path:'result',
-        component: ()=> import('~/views/result/result.vue')
+        name:'403',
+        path:'error/403',
+        component: ()=> import('~/views/error/403/403.vue')
       },
       {
-        name:'setting',
-        path:'setting',
-        component: ()=> import('~/views/setting/setting.vue')
+        name:'404',
+        path:'error/404',
+        component: ()=> import('~/views/error/404/404.vue')
       },
       {
-        name:'components',
-        path:'components',
-        component: ()=> import('~/views/components/components.vue')
+        name:'500',
+        path:'error/500',
+        component: ()=> import('~/views/error/500/500.vue')
       },
       {
-        name:'frame',
-        path:'frame',
-        component: ()=> import('~/views/frame/frame.vue')
+        name:'basic-from',
+        path:'form/basic-form',
+        component: ()=> import('~/views/form/basic-form/basic-form.vue')
+      },
+      {
+        name:'success',
+        path:'result/success',
+        component: ()=> import('~/views/result/success/success.vue')
+      },
+      {
+        name:'fail',
+        path:'result/fail',
+        component: ()=> import('~/views/result/fail/fail.vue')
+      },
+      {
+        name:'info',
+        path:'result/info',
+        component: ()=> import('~/views/result/info/info.vue')
+      },
+      {
+        name:'setting-account',
+        path:'setting/account',
+        component: ()=> import('~/views/setting/account/account.vue')
+      },
+      {
+        name:'setting-system',
+        path:'setting/system',
+        component: ()=> import('~/views/setting/system/system.vue')
+      },
+      {
+        name:'compo-table',
+        path:'components/compo-table',
+        component: ()=> import('~/views/components/table/table.vue')
+      },
+      {
+        name:'compo-form',
+        path:'components/compo-form',
+        component: ()=> import('~/views/components/form/form.vue')
+      },
+      {
+        name:'compo-upload',
+        path:'components/compo-upload',
+        component: ()=> import('~/views/components/upload/upload.vue')
+      },
+      {
+        name:'compo-modal',
+        path:'components/compo-modal',
+        component: ()=> import('~/views/components/modal/modal.vue')
+      },
+      {
+        name:'frame-github',
+        path:'frame/github',
+        component: ()=> import('~/views/frame/github/github.vue')
       },
       {
         name:'documentation',

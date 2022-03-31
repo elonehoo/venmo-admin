@@ -35,11 +35,11 @@ const props = withDefaults(defineProps<{
       unfold:false,
       chiled:[
         {
-          link:'/home/dashboard',
+          link:'/dashboard/console',
           title: 'Console',
         },
         {
-          link:'',
+          link:'/dashboard/workplace',
           title:'workplace',
         }
       ]
@@ -50,11 +50,11 @@ const props = withDefaults(defineProps<{
       unfold:false,
       chiled:[
         {
-          link:'',
+          link:'/system/role-admin',
           title:'Role Admin',
         },
         {
-          link:'',
+          link:'/system/user-admin',
           title:'User Admin',
         },
       ],
@@ -65,7 +65,7 @@ const props = withDefaults(defineProps<{
       unfold:false,
       chiled:[
         {
-          link:'',
+          link:'/table/basic-table',
           title:'Basic Table',
         },
       ],
@@ -76,15 +76,15 @@ const props = withDefaults(defineProps<{
       unfold:false,
       chiled:[
         {
-          link:'',
+          link:'/error/500',
           title:'500',
         },
         {
-          link:'',
+          link:'/error/404',
           title:'404',
         },
         {
-          link:'',
+          link:'/error/403',
           title:'403',
         }
       ]
@@ -96,7 +96,7 @@ const props = withDefaults(defineProps<{
       chiled:[
         {
           title:'Basic From',
-          link:''
+          link:'/form/basic-form',
         }
       ]
     },
@@ -107,15 +107,15 @@ const props = withDefaults(defineProps<{
       chiled:[
         {
           title:'Success',
-          link:''
+          link:'/result/success'
         },
         {
           title:'Fail',
-          link:''
+          link:'/result/fail'
         },
         {
           title:'Info',
-          link:''
+          link:'/result/info'
         }
       ]
     },
@@ -126,11 +126,11 @@ const props = withDefaults(defineProps<{
       chiled:[
         {
           title:'Account',
-          link:''
+          link:'/setting/account'
         },
         {
           title:'System',
-          link:''
+          link:'/setting/system'
         }
       ]
     },
@@ -141,19 +141,19 @@ const props = withDefaults(defineProps<{
       chiled:[
         {
           title:'Table',
-          link:''
+          link:'/components/compo-table'
         },
         {
           title:'Form',
-          link:''
+          link:'/components/compo-form'
         },
         {
           title:'Upload',
-          link:''
+          link:'/components/compo-upload'
         },
         {
           title:'modal',
-          link:''
+          link:'/components/compo-modal'
         },
       ]
     },
@@ -164,17 +164,17 @@ const props = withDefaults(defineProps<{
       chiled:[
         {
           title:'GitHub',
-          link:''
+          link:'/frame/github'
         }
       ]
     },
     {
-      link:'/home/documentation',
+      link:'/documentation',
       title:'Documentation',
       icon:'bx-file'
     },
     {
-      link:'/home/about',
+      link:'/about',
       title:'About',
       icon:'bx-food-menu'
     }
