@@ -8,6 +8,7 @@ declare module 'vue' {
     Bouton: typeof import('./src/components/button/bouton.vue')['default']
     Iframes: typeof import('./src/components/iframes/iframes.vue')['default']
     Return: typeof import('./src/components/return/return.vue')['default']
+    TextLoop: typeof import('./src/components/textLoop/textLoop.vue')['default']
   }
 }
 
