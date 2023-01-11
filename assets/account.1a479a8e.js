@@ -1,0 +1,1 @@
+import{_ as c}from"./plugin-vue_export-helper.21dcd24c.js";import{c as e,e as r}from"./index.6fe79236.js";const o={};function t(n,a){return e(),r("div",null," Account ")}var f=c(o,[["render",t]]);export{f as default};

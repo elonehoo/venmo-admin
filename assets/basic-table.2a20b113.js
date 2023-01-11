@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{c,e as r}from"./index.6fe79236.js";const a={};function o(t,n){return c(),r("div",null," Basic Table ")}var l=e(a,[["render",o]]);export{l as default};

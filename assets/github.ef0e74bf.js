@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{c as r,e as t}from"./index.6fe79236.js";const c={};function o(a,n){return r(),t("div",null," Frame GitHub ")}var f=e(c,[["render",o]]);export{f as default};

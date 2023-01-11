@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{c as r,e as c}from"./index.6fe79236.js";const o={};function a(t,n){return r(),c("div",null," workplace ")}var s=e(o,[["render",a]]);export{s as default};
