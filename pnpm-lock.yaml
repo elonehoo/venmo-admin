@@ -25,8 +25,8 @@ importers:
         specifier: ^17.0.21
         version: 17.0.45
       '@unocss/reset':
-        specifier: ^0.28.0
-        version: 0.28.3
+        specifier: ^66.11.0
+        version: 66.11.0
       '@vitejs/plugin-vue':
         specifier: ^2.2.4
         version: 2.3.4(vite@2.9.18(sass@1.105.1))(vue@3.5.44(typescript@4.9.5))
@@ -377,8 +377,8 @@ packages:
   '@ungap/structured-clone@1.4.0':
     resolution: {integrity: sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ==}
 
-  '@unocss/reset@0.28.3':
-    resolution: {integrity: sha512-FCKTyjCoMjDjhELPNgqhiUw4fRy1D59HTxGANwuf09GkJtJWWhxE/IBRfUQiyPjbx3pgqrIcuasp0VZsQK7EBA==}
+  '@unocss/reset@66.11.0':
+    resolution: {integrity: sha512-QyXwD3bOzi/zZBW8jte9ierrx5+iPXQjPUdiSqyAaJd+RxajZQV9m9lKiadWwn8pV082mc2b4y4Acvi5lLTTWg==}
 
   '@vitejs/plugin-vue@2.3.4':
     resolution: {integrity: sha512-IfFNbtkbIm36O9KB8QodlwwYvTEsJb4Lll4c2IwB3VHc2gie2mSPtSzL0eYay7X2jd/2WX02FjSGTWR6OPr/zg==}
@@ -2918,7 +2918,7 @@ snapshots:
 
   '@ungap/structured-clone@1.4.0': {}
 
-  '@unocss/reset@0.28.3': {}
+  '@unocss/reset@66.11.0': {}
 
   '@vitejs/plugin-vue@2.3.4(vite@2.9.18(sass@1.105.1))(vue@3.5.44(typescript@4.9.5))':
     dependencies:
